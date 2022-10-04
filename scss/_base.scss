@@ -1,0 +1,57 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+$primary-color:#ebba34;
+$secondary-color:#a6a188;
+$teritary-color:white;
+$bg-help: #595c56;
+$bg-about:#e9f0e4;
+$bg-contact:#faf9f5;
+
+
+
+@mixin flex-layout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+@mixin height{
+    min-height:500px;
+    padding:0 200px;
+    text-align: center;
+
+}
+@mixin heading($color,$size){
+    color:$color;
+    font-size: $size;
+}
+@mixin content{
+    color:$secondary-color;
+    font-size:24px;
+
+}
+.heading{
+    @include heading($primary-color,48px);
+}
+.content{
+    @include content;
+}
+#contact{
+    @include height;
+    background-color: $bg-contact;
+    @include flex-layout;
+}
+#about{
+   @extend #contact;
+    background-color:$bg-about;
+
+}
+#help{
+   @extend #contact;
+   background-color:$bg-help;
+
+}
